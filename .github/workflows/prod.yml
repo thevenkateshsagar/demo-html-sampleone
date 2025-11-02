@@ -1,0 +1,25 @@
+name: Manual Deploy to Production
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release version (e.g. v1.0.0)"
+        required: true
+
+jobs:
+  deploy-prod:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Print Deployment Info
+        run: echo "🚀 Manually deploying version ${{ github.event.inputs.version }} to PRODUCTION."
+
+      - name: List Files
+        run: ls -la
+
+      - name: Display HTML File
+        run: cat index.html

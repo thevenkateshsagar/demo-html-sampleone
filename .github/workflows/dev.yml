@@ -1,0 +1,23 @@
+name: Auto Deploy to Development
+
+on:
+  push:
+    branches:
+      - development
+
+jobs:
+  deploy-dev:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Print Environment
+        run: echo "🚀 Deploying automatically to DEVELOPMENT environment."
+
+      - name: List Files
+        run: ls -la
+
+      - name: Display HTML File
+        run: cat index.html
